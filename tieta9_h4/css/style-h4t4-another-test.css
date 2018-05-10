@@ -1,0 +1,41 @@
+table.scroll {
+    width: 716px;
+    /* 140px * 5 column + 16px scrollbar width */
+    border-spacing: 0;
+    border: 2px solid black;
+}
+
+table.scroll tbody, table.scroll thead tr, table.scroll tfoot tr {
+    display: block;
+    /*tarkea!?*/
+}
+
+table.scroll tbody {
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table.scroll tbody td, table.scroll thead th, table.scroll tfoot th {
+    width: 140px;
+    border-right: 1px solid black;
+}
+
+table.scroll thead th:last-child {
+    width: 156px; /*ei tarkea?*/
+    /* 140px + 16px scrollbar width */
+}
+
+thead tr th {
+    height: 30px;
+    line-height: 30px;
+    /*text-align: left;*/
+}
+
+tbody {
+    border-top: 2px solid black;
+}
+
+tbody td:last-child, thead th:last-child {
+    border-right: none !important;
+}

@@ -1,0 +1,27 @@
+main {
+   display: grid; 
+   grid-gap: 3px; 
+   /* grid-template-rows: 50px 50px; */          /* rivien korkeus                 */
+   /* grid-template-columns: 150px auto 150px; *//* sarakkeiden leveys, auto       */
+                                           /* varaa kaiken jaljella olevan   */  
+                                           /* nama kaksi olisivat lyhennettynä
+                                            merkintana: *
+   grid-template: 50px 50px / 150px auto 150px;  */
+
+/* 1  
+   kommentoi edelliset template-saannot pois ja kokeillaan 
+   toista grid-template -arvoa *
+   grid-template:  50px 50px 200px / 100px auto; */
+
+/* 2 
+   kaytetaan sarakkeiden leveyden määrittelyssa CSS yksikkoa fraction (fr)
+   joka tarkoittaa "yhta osuutta" käytettävissä olevasta tilasta, siis * */
+    /* grid-template: 50px 50px / 1fr 4fr 5fr; */
+    /* grid-template: 50px 50px / 1fr 1fr 1fr; */
+
+/* 3 
+    jalkimmainen, jossa samanlevyisia sarakkeita ja riveja 
+    voidaan lyhentaa seuraavasti * */
+    grid-template: repeat(2, 50px) / repeat(3, 1fr);
+
+}

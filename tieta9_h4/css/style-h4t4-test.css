@@ -1,0 +1,82 @@
+/* PAGE LAYOUT */
+
+.layout {
+    max-width: 55em;
+    /* margin: auto; */
+}
+
+.container {
+    max-height: 20em; /*tata saatamalla taulukon koko muuttuu*/
+    overflow-y: scroll; /*estaa ylivuodon*/
+    outline: 1px solid dimgrey; /*tama ja seuraava ulkoasullisia saatoja*/
+    outline-offset: -1px;
+}
+
+/* h1 {
+    color: dimgrey;
+    font-family: sans-serif;
+    font-weight: normal;
+    white-space: nowrap;
+    padding: 0.5em 1rem;
+    border-bottom: 1px solid gainsboro;
+} */
+
+/* PAGE LAYOUT END */
+
+/* DEFAULT TABLE */
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    font-family: sans-serif;
+    background-color: gainsboro;
+    padding: 1em;
+    border: 1px solid white;
+}
+
+th {
+    text-align: left;
+    color: white;
+    background-color: dimgrey;
+}
+
+/* DEFAULT TABLE END */
+
+/* CUSTOM TABLE */
+
+#table3 {
+    position: relative;
+    overflow: hidden;
+}
+
+#table3 th {
+    white-space: nowrap;
+}
+
+#table3 th:first-child div {
+    border-left: none;
+}
+
+#table3 th div {
+    position: absolute;
+    z-index: 2;
+    font-weight: bold;
+    width: 100%;
+    color: white;
+    background-color: dimgrey;
+    padding: 1rem;
+    border-left: 1px solid white;
+    margin-left: calc(-1rem - 1px);
+}
+
+#table3 thead div {
+    top: 0;
+}
+
+#table3 tfoot div {
+    bottom: 0;
+}
+
+/* CUSTOM TABLE END */

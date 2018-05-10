@@ -1,0 +1,21 @@
+.header {
+    font-style: italic;
+    font-family: 'Comic-Sans', serif;
+    margin: 20px 0;
+}
+
+.square {
+    background-color: #868686;
+    height: 190px;
+    border: 2px solid white;
+}
+
+span {
+    font-size: 124px;
+    color: white;
+    text-align: center;
+}
+
+.playAgain {
+    margin: 0 0 20px;
+}

@@ -1,0 +1,55 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Acme', sans-serif;
+}
+
+img {
+    float:left;
+    padding: 0.5em 1em;
+}
+
+#t3 table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+/* #t3 th, td {
+    padding: 15px;
+    text-align: left;
+} */
+#t3 table tr:nth-child(odd) {
+    background-color: white;
+}
+#t3 table tr:nth-child(even) {
+   background-color: #b8b7b7;
+}
+#t3 table thead th {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#t3 table tfoot td {
+    background-color: black;
+    color: white;
+}
+
+#t3 td, tr{
+    width: 150px;
+}
+
+/* - - - - - - - - - Valitsintehtavan ratkaisutaulukon kevyt muotoilu  -- */
+#t2 table {
+    border:1pt solid black; 
+    margin: 0 4em;     border-collapse:collapse;
+
+}
+#t2 tr, col {
+    border:1pt solid black;
+    line-height: 1.2em;
+}
+
+#t2 td        { padding: 0 10px; }
+#t2 .sarake-2 { width: 158px;}

@@ -1,0 +1,12 @@
+.container {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;                          /* toinen rivi käyttää        */
+    grid-template-rows:  40px auto 40px;     /* saatavissa olevan tilan    */
+    grid-template-columns: repeat(12, 1fr); /* 12-column grid             */
+}
+
+.header  { grid-column: 1 / -1; } 
+.menu    {}
+.content { grid-column: 2 / -1; }
+.footer  { grid-column: 1 / -1; }

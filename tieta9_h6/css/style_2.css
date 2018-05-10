@@ -1,0 +1,12 @@
+/* Aulikki Hyrskykari                                    
+   JavaScript-esimerkki: tervehdys-sivun tyylit            */
+
+#container { /* sivun sisalto kapea, keskitetty, taustavari */ 
+  font-family: Verdana, sans-serif; 
+  background-color: khaki;
+  margin: 1em auto;
+  width: 20em;
+	text-align: center;
+  padding: 1em;
+  border-radius: 20px;
+}

@@ -1,0 +1,78 @@
+body {
+    max-width: 810px;
+    margin: auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+h1, h2 {
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    border-radius: 10px;
+    max-width: 50%;
+    float: right;
+    margin: 5px;
+}
+
+iframe {
+    width: 95%;
+    height: 400px;
+}
+
+nav ul {
+    /* font-family: Arial, Verdana;
+    font-size: 14px; */
+    margin: 0;
+    padding: 0;
+    /* list-style: none; */
+    /*itse lisätyt jutut:*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(2, 2, 165);
+}
+
+nav ul li {
+    display: block;
+    position: relative;
+    float: left;
+}
+
+nav li ul {
+    display: none;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    border-top: 1px solid #ffffff;
+    padding: 5px 15px 5px 15px;
+    background: #2C5463;
+    margin-left: 1px;
+    white-space: nowrap;
+}
+
+nav ul li a:hover {
+    background: #617F8A;
+}
+
+nav li:hover ul {
+    display: block;
+    position: absolute;
+}
+
+nav li:hover li {
+    float: none;
+    font-size: 11px;
+}
+
+nav li:hover a {
+    background: #617F8A;
+}
+
+nav li:hover li a:hover {
+    background: #95A9B1;
+}

@@ -1,0 +1,71 @@
+.container {
+   border: 5px solid #96aaeb;
+   display: flex;
+   
+   
+   flex-direction: row-reverse;
+   flex-direction: column; 
+
+
+   justify-content: flex-start; 
+   justify-content: flex-end;
+   justify-content: center;
+   justify-content: space-around;
+   justify-content: space-between; 
+
+  
+   height: 100%;      /*  muista, että myös vahnhemmalla tulee        */
+                      /*  olla korkeus määriteltynä, jotta            */
+                      /* suhteellisella korkeudella olisi vaikutusta  *                     */ 
+  
+   align-items: center;
+   align-items: flex-end;
+   align-items: flex-start;
+ 
+  
+   flex-wrap: wrap;
+}
+
+  .container > div {
+    width: 200px;
+  }
+
+
+
+      .container > div:nth-child(2){
+        flex:1;
+      } 
+
+ 
+      .container > div:nth-child(1){
+       flex:1;
+      }
+      .container > div:nth-child(2){
+       flex: 2;
+      }
+      .container > div:nth-child(3){
+       flex:3;
+       } 
+      
+
+      .container > div {
+         flex-basis: 200px;
+      }
+
+      .container > div {
+       flex-basis: 200px;
+      }
+      .container > div:nth-child(1){
+        flex-grow: 1;
+        flex-shrink: 1;
+       }
+       .container > div:nth-child(2){
+        flex-grow: 3;
+        flex-shrink: 3;
+       }
+       .container > div:nth-child(3){
+        flex-grow: 6;
+        flex-shrink: 6;
+        } *
+      
+}      

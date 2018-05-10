@@ -1,0 +1,32 @@
+.container {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px; 
+    grid-template: 40px auto 40px / repeat(12, 1fr);  /*12, 1fr*/
+
+  
+
+                                            /* toinen rivi käyttää        
+    grid-template-rows: 40px auto 40px;     /* saatavissa olevan tilan    
+    grid-template-columns: repeat(12, 1fr); /* 12-column grid             */
+    grid-template-areas: 
+        "h h h h h h h h h h h h"
+        "m c c c c c c c c c c a"
+        "f f f f f f f f f f f f"; 
+} /*. = ei kohdetta*/
+
+
+
+/* 1 
+.header  { grid-column: 1 / -1; } 
+.menu    {}
+.content { grid-column: 2 / -1; }
+.footer  { grid-column: 1 / -1; }
+
+
+/* 2 */
+.header  { grid-area: h; }
+.menu    { grid-area: m; }
+.content { grid-area: c; }
+.aside { grid-area: a; }
+.footer  { grid-area: f; }

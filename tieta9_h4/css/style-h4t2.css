@@ -1,0 +1,79 @@
+body {
+    max-width: 810px;
+    margin: auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+h1, h2 {
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    border-radius: 10px;
+    max-width: 50%;
+    float: right;
+    margin: 5px;
+}
+
+#logo {
+    border-radius: 0;
+    float: left;
+    margin: 0px;
+}
+
+iframe {
+    width: 95%;
+    height: 400px;
+}
+
+.alkuun {
+    width: 30px;
+    height: 30px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(2, 2, 165);
+    border-radius: 10px;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav li ul {
+    display: none;
+}
+
+nav ul li a:hover {
+    background: #333;
+}
+
+nav li:hover ul {
+    display: block;
+    position: absolute;
+}
+
+nav li:hover li {
+    float: none;
+}
+
+nav li:hover a {
+    background: rgb(2, 2, 165);
+}
+
+nav li:hover li a:hover {
+    background: #333;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+}

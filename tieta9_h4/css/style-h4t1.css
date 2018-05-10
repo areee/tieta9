@@ -1,0 +1,61 @@
+body {
+    max-width: 810px;
+    margin: auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+nav {
+    position: fixed;
+}
+
+h1 {
+    background-color: rgb(2, 2, 165);
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin: 5px;
+}
+
+h1, h2 {
+    font-family: 'Roboto', sans-serif;
+}
+
+a:hover {
+    font-weight: bold;
+    color: yellow;
+}
+
+main {
+    padding-left: 210px;
+    background-image: url("../img/taustakuva2.png");
+    background-repeat: repeat-y;
+}
+
+img {
+    border-radius: 10px;
+    max-width: 50%;
+    float: right;
+    margin: 5px;
+}
+
+#logo {
+    border-radius: 0;
+    float: unset;
+    margin: 0px;
+}
+
+iframe {
+    width: 95%;
+    height: auto;
+}

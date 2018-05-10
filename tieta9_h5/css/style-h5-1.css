@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px;
+    height: 100%;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+iframe, video {
+    width: 95%;
+    height: auto;
+}
+
+.header {
+    background-color: #0022bb;
+    color: white;
+}
+
+.footer img {
+    float: none;
+    margin: 0px;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu ul li {
+    float: none;
+    display: inline-block;
+    background-color: #0022bb;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    text-align: left;
+    padding: 5px;
+}
+
+img {
+    border-radius: 10px;
+    max-width: 50%;
+    float: right;
+    margin: 5px;
+}
+
+#logo {
+    border-radius: 0;
+    float: none;
+    margin: 0px;
+}
+
+.aside ul {
+    list-style-type: none;
+}
+
+hr {
+    border: 0.5px dashed #0400da;
+}
+
+.container>* {
+    padding: 10px;
+    margin: 2px;
+    text-align: center;
+    border: 1px dashed #0400da;
+    border-radius: 10px;
+}
+
+.container .content, .container .content h2, .container .content h3 {
+    text-align: left;
+    color: black;
+}
+
+@media (max-width: 768px) {}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .header, .footer, .aside {
+        flex: 0 0 100%;
+    }
+    .container>.content {
+        flex: 1 1 0;
+    }
+    .container>.menu {
+        flex: 0 1 150px;
+    }
+    .menu ul li {
+        display: block;
+    }
+}
+
+@media (min-width: 993px) {
+    .container {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .header, .footer {
+        flex: 0 0 100%;
+    }
+    .container>.content {
+        flex: 1 1 0;
+    }
+    .container>.menu, .container>.aside {
+        flex: 0 1 200px;
+        text-align: left;
+    }
+    .menu ul li {
+        display: block;
+    }
+    .aside ul {
+        padding: 10px;
+    }
+}

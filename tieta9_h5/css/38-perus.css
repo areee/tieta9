@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+div {
+  padding: 10px;
+  border: 5px dashed rgb(0, 68, 255);
+  width: 500px;	
+}
+div div {
+  padding: 10px;
+  text-align: center;
+  font: bold normal 2em Arial, Helvetica, sans-serif; 
+  background-color: aquamarine;
+  border: 1px solid #344353;
+  color: #344353;
+  width: 200px;
+}
+
+html, body {
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #c3dbf7;
+  height: 100%;
+}
+

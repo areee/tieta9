@@ -1,0 +1,42 @@
+/* - - - - - - - - -H4  tehtavan 4 taulukko  -- */
+
+/* 
+   table-layout -ominaisuus 
+   ks. https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout
+   tarvitaan table-layout: fixed, koska muuten
+   skrollattavaa taulukkoa maaritellessa taulukon
+   layout-algoritmit vievat koko taulukon
+   sarakeotsikon ensimmaiseen sarakkeeseen   
+*/
+
+#t1 table {
+    border-collapse: collapse;
+    width: 320px;
+    text-align: left;
+    table-layout: fixed;
+    /* ks. selitys ja */
+}
+
+#t1 thead, #t1 tfoot {
+    color: white;
+    background-color: black;
+}
+
+#t1 td, #t1 th {
+    width: 150px;
+    padding: 5px;
+}
+
+#t1 tr:nth-child(even) {
+    background-color: hsl(0, 0%, 69%);
+}
+
+#t1 tbody, #t1 thead tr, #t1 tfoot tr {
+    display: block;
+}
+
+#t1 tbody {
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

@@ -1,0 +1,68 @@
+/* AUlikki Hyrskykari, JWT 2018 - Tampereen yliopisto          */ 
+
+body {                         
+    margin: 0;
+}
+/********** kapea ikkuna ************************************************ */
+@media (max-width: 767px) {
+ /* ei tarvitse kayttaa flexboxia lainkaan                               */
+}
+
+/********** keskilevea ikkuna ******************************************   */
+/* Tama valileveys tassa on vahan kikkailua, tuskin kovin kayttokelpoinen  */
+/* koska aside-elementtiin ei voi paljon mitaan laittaa (sen sisallon      */
+/* korkeus pakottaisi otsikonkin korkeuden kasvamaan)                      */
+/* Tama onkin lahinna esimerkki                                            */
+/* (1) miten responsiivinen sivu voi muuttua useilla leveyksilla           */
+/* (2) miten flexbox elementit voivat muuttaa jarjestysta                  */
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .container {                   
+        display: flex;                    /* .container flexboksiksi      */
+        flex-flow: row wrap;              /* flexbox useampiriviseksi, ts.*/
+    }                       
+    
+    .header{                              /* .header-elementin kooksi      */
+        flex: 0 0 80%;                    /* koko vanhemman leveys         */
+        order: -2;                        /* pidetaan otsikko ensimmaisena */
+    }
+        
+        .footer {                          /* .footer-elementin kooksi     */
+            flex: 0 0 100%;                /*  koko vanhemman leveys       */
+        }
+    
+        .container > .content { /* keskimmainen elementti perusleveydeltaan */
+            flex: 1 1 0;           /*  nolla, mutta saa kasvaa jos tarpeen  */
+        }
+    
+        .container > .menu {        /* koko alunperin 120 px, eika annetaa */
+            flex: 0 1 120px;        /* anneta lupaa kasvaa                 */
+        }  
+        .container > .aside  {      /* koko alunperin nolla, mutta saa     */
+            flex: 1 1 0;            /* kasvaa ja ppienentä                  */
+            order: -1;              /* tuodaan .aside toiseksi elementiksi  */
+        }  
+}                      
+
+/********** levea ikkuna *********************************************** */
+@media (min-width: 992px) {
+  .container {                  
+    display: flex;                       /* .container flexboksiksi      */
+    flex-flow: row wrap;                 /* flexbox useampiriviseksi, ts.*/
+    }                          
+
+    .header,
+    .footer {                       /* maarataan header ja footer         */
+        flex: 0 0 100%;             /* kooksi koko vanhemman leveys       */
+    }
+
+    .container > .content {    /* keskimmainen elementti perusleveydeltaan */
+        flex: 1 1 0;           /*  nolla, mutta saa kasvaa jos tarpeen     */
+    }
+
+    .container > .menu,
+    .container > .aside  {         /* koko alunperin 120 px, eika annetaa  */
+        flex: 0 1 120px;           /* anneta lupaa kasvaa                   */
+    }        
+}
+  
