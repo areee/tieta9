@@ -115,7 +115,7 @@ function siirryYlospain() {
         console.log("jälkeen ylös: " + pelaajaRuudukossa()); // pelaajanSijainti()
         document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake; // pelaajanSijainti
 
-        /* tarkistaOsuma(); */
+        tarkistaOsuma();
     }
 }
 
@@ -129,7 +129,7 @@ function siirryAlaspain() {
         console.log("jälkeen alas: " + pelaajaRuudukossa());
         document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
-        /* tarkistaOsuma(); */
+        tarkistaOsuma();
     }
 }
 
@@ -147,7 +147,7 @@ function siirryVasemmallepain() {
         console.log("jälkeen vasen: " + pelaajaRuudukossa());
         document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
-        /* tarkistaOsuma(); */
+        tarkistaOsuma();
     }
 }
 
@@ -161,7 +161,7 @@ function siirryOikeallepain() {
         console.log("jälkeen oikea: " + pelaajaRuudukossa());
         document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
-        /* tarkistaOsuma(); */
+        tarkistaOsuma();
     }
 }
 
@@ -170,7 +170,9 @@ function onkoAarreRuudussa() {
     for (let index = 0; index < aarteet.length; index++) {
         let x = aarteet[index].xKoord;
         let y = aarteet[index].xKoord2;
-        if (pelaaja.yKoord == x && pelaaja.xKoord == y) {
+        if (pelaaja.yKoord == y && pelaaja.xKoord == x) {
+            aarteet[index].xKoord = 0;
+            aarteet[index].yKoord = 0;
             return true;
         }
     }
@@ -186,7 +188,7 @@ function vaihdaNimi() {
 }
 
 function tarkistaOsuma() {
-    if (onkoAarreRuudussa) {
+    if (!onkoAarreRuudussa) {
         console.log("löytyi!");
         pisteet += 100;
         pisteetSpan.textContent = tulostaPisteet();
