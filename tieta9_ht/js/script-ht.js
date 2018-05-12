@@ -11,7 +11,6 @@ let aarre2 = { yKoord: 0, xKoord: 0 };
 let aarre3 = { yKoord: 0, xKoord: 0 };
 let aarre4 = { yKoord: 0, xKoord: 0 };
 
-
 // edelliset simppelimmässä muodossa:
 let aarteet = [aarre1, aarre2, aarre3, aarre4];
 
@@ -22,7 +21,7 @@ let nimialue = document.querySelector("#nimialue");
 let nimiSpan = document.querySelector("#nimi");
 
 
-let pistealue = document.querySelector("#pistealue"); // tarpeeton...?
+/* let pistealue = document.querySelector("#pistealue"); // tarpeeton...? */
 let pisteetSpan = document.querySelector("#pisteet");
 
 
@@ -61,30 +60,30 @@ function pelinAloitus() {
 
     /* pelaajanSijainti = 22; */
 
-    pelaaja.xKoord = 2;
     pelaaja.yKoord = 2;
+    pelaaja.xKoord = 2;
 
     /* ruutu22.style.content = pelaajakuvake; */
     // edellistä riviä monipuolisempi versio:
     /* document.querySelector("#ruutu" + pelaajanSijainti).style.content = pelaajakuvake; */
-    document.querySelector("#ruutu" + pelaaja.yKoord + pelaaja.xKoord).style.content = pelaajakuvake;
+    document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
     // aarteiden sijaintien asettaminen:
-    aarre1.xKoord = 2;
     aarre1.yKoord = 1;
+    aarre1.xKoord = 2;
 
-    aarre2.xKoord = 1;
     aarre2.yKoord = 2;
+    aarre2.xKoord = 1;
 
-    aarre3.xKoord = 2;
     aarre3.yKoord = 3;
+    aarre3.xKoord = 2;
 
-    aarre4.xKoord = 3;
     aarre4.yKoord = 3;
+    aarre4.xKoord = 3;
 
     // toteuta ruudukkoon aarteiden sijainnit:
     for (let index = 0; index < aarteet.length; index++) {
-        document.querySelector("#ruutu" + aarteet[index].yKoord + aarteet[index].xKoord).style.content = aarrekuvake; // suorittaa saman kuin alla oleva
+        document.querySelector(aarreRuudukossa(index)).style.content = aarrekuvake; // suorittaa saman kuin alla oleva
     }
 
     /* document.querySelector("#ruutu" + aarre1.xKoord + aarre1.yKoord).style.content = aarrekuvake;
@@ -92,53 +91,45 @@ function pelinAloitus() {
     document.querySelector("#ruutu" + aarre3.xKoord + aarre3.yKoord).style.content = aarrekuvake;
     document.querySelector("#ruutu" + aarre4.xKoord + aarre4.yKoord).style.content = aarrekuvake; */
 
-    console.log(aarteet[0].xKoord);
+    /* console.log(aarteet[0].xKoord);
     console.log(aarteet[1]);
-    console.log(aarteet);
+    console.log(aarteet); */
 
 }
 
+function aarreRuudukossa(index) {
+    return "#ruutu" + aarteet[index].yKoord + aarteet[index].xKoord;
+}
 
+function pelaajaRuudukossa() {
+    return "#ruutu" + pelaaja.yKoord + pelaaja.xKoord;
+}
 
 function siirryYlospain() {
-    /* pisteet.textContent = "ylös"; */
 
     if (pelaaja.yKoord > 1) { // tarkistetaan, ettei olla ruudukon ylärivillä
-        console.log("ennen ylös: " + pelaajanSijainti());
-        document.querySelector("#ruutu" + pelaajanSijainti()).style.content = null;
+        console.log("ennen ylös: " + pelaajaRuudukossa()); // pelaajanSijainti()
+        document.querySelector(pelaajaRuudukossa()).style.content = null; // "#ruutu" + pelaajanSijainti()
 
         pelaaja.yKoord--;
-        document.querySelector("#ruutu" + pelaajanSijainti()).style.content = pelaajakuvake;
-        console.log("jälkeen ylös: " + pelaajanSijainti());
+        console.log("jälkeen ylös: " + pelaajaRuudukossa()); // pelaajanSijainti()
+        document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake; // pelaajanSijainti
 
-        tarkistaOsuma();
-    }
-
-}
-
-function tarkistaOsuma() {
-    if (onkoAarreRuudussa) {
-        console.log("löytyi!");
-        pisteet += 100;
-        pisteetSpan.textContent = tulostaPisteet();
-    }
-    else {
-        console.log("ohi!");
+        /* tarkistaOsuma(); */
     }
 }
 
 function siirryAlaspain() {
-    /* pisteet.textContent = "alas"; */
 
-    if (pelaaja.yKoord < 3) {
-        console.log("ennen alas: " + pelaajanSijainti());
-        document.querySelector("#ruutu" + pelaajanSijainti()).style.content = null;
+    if (pelaaja.yKoord < 3) { // tarkistetaan, ettei olla ruudukon alarivillä
+        console.log("ennen alas: " + pelaajaRuudukossa());
+        document.querySelector(pelaajaRuudukossa()).style.content = null;
 
         pelaaja.yKoord++;
-        document.querySelector("#ruutu" + pelaajanSijainti()).style.content = pelaajakuvake;
-        console.log("jälkeen alas: " + pelaajanSijainti());
+        console.log("jälkeen alas: " + pelaajaRuudukossa());
+        document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
-        tarkistaOsuma();
+        /* tarkistaOsuma(); */
     }
 }
 
@@ -147,32 +138,30 @@ function siirryAlaspain() {
 } */
 
 function siirryVasemmallepain() {
-    /* pisteet.textContent = "vasen"; */
 
-    if (pelaaja.xKoord > 1) {
-        console.log("ennen vasen: " + pelaajanSijainti());
-        document.querySelector("#ruutu" + pelaajanSijainti()).style.content = null;
+    if (pelaaja.xKoord > 1) { // tarkistetaan, ettei olla ruudukon äärivasemmalla pystyrivillä
+        console.log("ennen vasen: " + pelaajaRuudukossa());
+        document.querySelector(pelaajaRuudukossa()).style.content = null;
 
         pelaaja.xKoord--;
-        document.querySelector("#ruutu" + pelaajanSijainti()).style.content = pelaajakuvake;
-        console.log("jälkeen vasen: " + pelaajanSijainti());
+        console.log("jälkeen vasen: " + pelaajaRuudukossa());
+        document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
-        tarkistaOsuma();
+        /* tarkistaOsuma(); */
     }
 }
 
 function siirryOikeallepain() {
-    /* pisteet.textContent = "oikea"; */
 
-    if (pelaaja.xKoord < 3) {
-        console.log("ennen oikea: " + pelaajanSijainti());
-        document.querySelector("#ruutu" + pelaajanSijainti()).style.content = null;
+    if (pelaaja.xKoord < 3) { // tarkistetaan, ettei olla ruudukon äärioikealla pystyrivillä
+        console.log("ennen oikea: " + pelaajaRuudukossa());
+        document.querySelector(pelaajaRuudukossa()).style.content = null;
 
         pelaaja.xKoord++;
-        document.querySelector("#ruutu" + pelaajanSijainti()).style.content = pelaajakuvake;
-        console.log("jälkeen oikea: " + pelaajanSijainti());
+        console.log("jälkeen oikea: " + pelaajaRuudukossa());
+        document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
-        tarkistaOsuma();
+        /* tarkistaOsuma(); */
     }
 }
 
@@ -196,10 +185,21 @@ function vaihdaNimi() {
     }
 }
 
-function pelaajanSijainti() {
-    return pelaaja.yKoord + "" + pelaaja.xKoord;
+function tarkistaOsuma() {
+    if (onkoAarreRuudussa) {
+        console.log("löytyi!");
+        pisteet += 100;
+        pisteetSpan.textContent = tulostaPisteet();
+    }
+    else {
+        console.log("ohi!");
+    }
 }
 
 function tulostaPisteet() {
     return pisteet + " $";
+}
+
+function pelaajanSijainti() { // voinee poistaa?
+    return pelaaja.yKoord + "" + pelaaja.xKoord;
 }
