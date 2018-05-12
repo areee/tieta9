@@ -4,12 +4,12 @@ let nimi = "Essi Esimerkki";
 let pisteet = 0;
 
 /* let pelaajanSijainti; */
-let pelaaja = { yKoord: 0, xKoord: 0 };
+let pelaaja = { korkeus: 0, leveys: 0 };
 
-let aarre1 = { yKoord: 0, xKoord: 0 };
-let aarre2 = { yKoord: 0, xKoord: 0 };
-let aarre3 = { yKoord: 0, xKoord: 0 };
-let aarre4 = { yKoord: 0, xKoord: 0 };
+let aarre1 = { korkeus: 0, leveys: 0 };
+let aarre2 = { korkeus: 0, leveys: 0 };
+let aarre3 = { korkeus: 0, leveys: 0 };
+let aarre4 = { korkeus: 0, leveys: 0 };
 
 // edelliset simppelimmässä muodossa:
 let aarteet = [aarre1, aarre2, aarre3, aarre4];
@@ -60,8 +60,8 @@ function pelinAloitus() {
 
     /* pelaajanSijainti = 22; */
 
-    pelaaja.yKoord = 2;
-    pelaaja.xKoord = 2;
+    pelaaja.korkeus = 2;
+    pelaaja.leveys = 2;
 
     /* ruutu22.style.content = pelaajakuvake; */
     // edellistä riviä monipuolisempi versio:
@@ -69,17 +69,17 @@ function pelinAloitus() {
     document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
     // aarteiden sijaintien asettaminen:
-    aarre1.yKoord = 1;
-    aarre1.xKoord = 2;
+    aarre1.korkeus = 1;
+    aarre1.leveys = 2;
 
-    aarre2.yKoord = 2;
-    aarre2.xKoord = 1;
+    aarre2.korkeus = 2;
+    aarre2.leveys = 1;
 
-    aarre3.yKoord = 3;
-    aarre3.xKoord = 2;
+    aarre3.korkeus = 3;
+    aarre3.leveys = 2;
 
-    aarre4.yKoord = 3;
-    aarre4.xKoord = 3;
+    aarre4.korkeus = 3;
+    aarre4.leveys = 3;
 
     // toteuta ruudukkoon aarteiden sijainnit:
     for (let index = 0; index < aarteet.length; index++) {
@@ -98,34 +98,37 @@ function pelinAloitus() {
 }
 
 function aarreRuudukossa(index) {
-    return "#ruutu" + aarteet[index].yKoord + aarteet[index].xKoord;
+    return "#ruutu" + aarteet[index].korkeus + aarteet[index].leveys;
 }
 
 function pelaajaRuudukossa() {
-    return "#ruutu" + pelaaja.yKoord + pelaaja.xKoord;
+    return "#ruutu" + pelaaja.korkeus + pelaaja.leveys;
 }
 
 function siirryYlospain() {
 
-    if (pelaaja.yKoord > 1) { // tarkistetaan, ettei olla ruudukon ylärivillä
+    if (pelaaja.korkeus > 1) { // tarkistetaan, ettei olla ruudukon ylärivillä
         console.log("ennen ylös: " + pelaajaRuudukossa()); // pelaajanSijainti()
+        // asetetaan pelaajakuvake pois poissiirryttävästä ruudusta
         document.querySelector(pelaajaRuudukossa()).style.content = null; // "#ruutu" + pelaajanSijainti()
 
-        pelaaja.yKoord--;
+        // korkeus ylöspäin
+        pelaaja.korkeus--;
         console.log("jälkeen ylös: " + pelaajaRuudukossa()); // pelaajanSijainti()
         document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake; // pelaajanSijainti
 
         tarkistaOsuma();
     }
+    // else: voisi tulla virheviesti "ei voida poistua ruudukosta" (sama else voisi olla myös muissa siirtymäfunktioissa)
 }
 
 function siirryAlaspain() {
 
-    if (pelaaja.yKoord < 3) { // tarkistetaan, ettei olla ruudukon alarivillä
+    if (pelaaja.korkeus < 3) { // tarkistetaan, ettei olla ruudukon alarivillä
         console.log("ennen alas: " + pelaajaRuudukossa());
         document.querySelector(pelaajaRuudukossa()).style.content = null;
 
-        pelaaja.yKoord++;
+        pelaaja.korkeus++;
         console.log("jälkeen alas: " + pelaajaRuudukossa());
         document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
@@ -139,11 +142,11 @@ function siirryAlaspain() {
 
 function siirryVasemmallepain() {
 
-    if (pelaaja.xKoord > 1) { // tarkistetaan, ettei olla ruudukon äärivasemmalla pystyrivillä
+    if (pelaaja.leveys > 1) { // tarkistetaan, ettei olla ruudukon äärivasemmalla pystyrivillä
         console.log("ennen vasen: " + pelaajaRuudukossa());
         document.querySelector(pelaajaRuudukossa()).style.content = null;
 
-        pelaaja.xKoord--;
+        pelaaja.leveys--;
         console.log("jälkeen vasen: " + pelaajaRuudukossa());
         document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
@@ -153,11 +156,11 @@ function siirryVasemmallepain() {
 
 function siirryOikeallepain() {
 
-    if (pelaaja.xKoord < 3) { // tarkistetaan, ettei olla ruudukon äärioikealla pystyrivillä
+    if (pelaaja.leveys < 3) { // tarkistetaan, ettei olla ruudukon äärioikealla pystyrivillä
         console.log("ennen oikea: " + pelaajaRuudukossa());
         document.querySelector(pelaajaRuudukossa()).style.content = null;
 
-        pelaaja.xKoord++;
+        pelaaja.leveys++;
         console.log("jälkeen oikea: " + pelaajaRuudukossa());
         document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
@@ -168,11 +171,11 @@ function siirryOikeallepain() {
 function onkoAarreRuudussa() {
     // jos siirron jälkeen pelaajan x-koordinaatti ja y-koordinaatti ovat samat kuin jonkin aarteista, palauta true; jos ei, palauta false
     for (let index = 0; index < aarteet.length; index++) {
-        let x = aarteet[index].xKoord;
-        let y = aarteet[index].xKoord2;
-        if (pelaaja.yKoord == y && pelaaja.xKoord == x) {
-            aarteet[index].xKoord = 0;
-            aarteet[index].yKoord = 0;
+        let leveys = aarteet[index].leveys;
+        let korkeus = aarteet[index].korkeus;
+        if (pelaaja.korkeus == korkeus && pelaaja.leveys == leveys) {
+            aarteet[index].leveys = 0;
+            aarteet[index].korkeus = 0;
             return true;
         }
     }
@@ -188,7 +191,7 @@ function vaihdaNimi() {
 }
 
 function tarkistaOsuma() {
-    if (!onkoAarreRuudussa) {
+    if (onkoAarreRuudussa()) {
         console.log("löytyi!");
         pisteet += 100;
         pisteetSpan.textContent = tulostaPisteet();
@@ -203,5 +206,5 @@ function tulostaPisteet() {
 }
 
 function pelaajanSijainti() { // voinee poistaa?
-    return pelaaja.yKoord + "" + pelaaja.xKoord;
+    return pelaaja.korkeus + "" + pelaaja.leveys;
 }
