@@ -53,7 +53,7 @@ function pelinAloitus() {
     // asetukset pelin alkua varten:
     nimiSpan.textContent = nimi;
     pisteetSpan.textContent = tulostaPisteet();
-    /* document.body.style.backgroundColor = "#c72222"; */
+    document.body.style.backgroundColor = "#ffc107";
 
     /* ruutu22.style.backgroundColor = "#c72222"; */
     /* ruutu22.textContent = "pöö"; */
