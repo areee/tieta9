@@ -3,7 +3,6 @@
 let nimi = "Essi Esimerkki";
 let pisteet = 0;
 
-/* let pelaajanSijainti; */
 let pelaaja = { korkeus: 0, leveys: 0 };
 
 let aarre1 = { korkeus: 0, leveys: 0 };
@@ -11,7 +10,7 @@ let aarre2 = { korkeus: 0, leveys: 0 };
 let aarre3 = { korkeus: 0, leveys: 0 };
 let aarre4 = { korkeus: 0, leveys: 0 };
 
-// edelliset simppelimmässä muodossa:
+// viedään aarteet kokoavaan taulukkoon:
 let aarteet = [aarre1, aarre2, aarre3, aarre4];
 
 let pelaajakuvake = "url('img/player.png')";
@@ -20,8 +19,6 @@ let aarrekuvake = "url('img/coin.png')";
 let nimialue = document.querySelector("#nimialue");
 let nimiSpan = document.querySelector("#nimi");
 
-
-/* let pistealue = document.querySelector("#pistealue"); // tarpeeton...? */
 let pisteetSpan = document.querySelector("#pisteet");
 
 
@@ -29,19 +26,6 @@ let ylos = document.querySelector("#ylos");
 let alas = document.querySelector("#alas");
 let vasen = document.querySelector("#vasen");
 let oikea = document.querySelector("#oikea");
-
-// nämä voinee poistaa...?
-/* let ruutu11 = document.querySelector("#ruutu11");
-let ruutu12 = document.querySelector("#ruutu12");
-let ruutu13 = document.querySelector("#ruutu13");
-
-let ruutu21 = document.querySelector("#ruutu21");
-let ruutu22 = document.querySelector("#ruutu22");
-let ruutu23 = document.querySelector("#ruutu23");
-
-let ruutu31 = document.querySelector("#ruutu31");
-let ruutu32 = document.querySelector("#ruutu32");
-let ruutu33 = document.querySelector("#ruutu33"); */
 
 nimialue.addEventListener('click', vaihdaNimi);
 ylos.addEventListener('click', siirryYlospain);
@@ -55,17 +39,9 @@ function pelinAloitus() {
     pisteetSpan.textContent = tulostaPisteet();
     document.body.style.backgroundColor = "#ffc107";
 
-    /* ruutu22.style.backgroundColor = "#c72222"; */
-    /* ruutu22.textContent = "pöö"; */
-
-    /* pelaajanSijainti = 22; */
-
     pelaaja.korkeus = 2;
     pelaaja.leveys = 2;
 
-    /* ruutu22.style.content = pelaajakuvake; */
-    // edellistä riviä monipuolisempi versio:
-    /* document.querySelector("#ruutu" + pelaajanSijainti).style.content = pelaajakuvake; */
     document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
     // aarteiden sijaintien asettaminen:
@@ -85,16 +61,6 @@ function pelinAloitus() {
     for (let index = 0; index < aarteet.length; index++) {
         document.querySelector(aarreRuudukossa(index)).style.content = aarrekuvake; // suorittaa saman kuin alla oleva
     }
-
-    /* document.querySelector("#ruutu" + aarre1.xKoord + aarre1.yKoord).style.content = aarrekuvake;
-    document.querySelector("#ruutu" + aarre2.xKoord + aarre2.yKoord).style.content = aarrekuvake;
-    document.querySelector("#ruutu" + aarre3.xKoord + aarre3.yKoord).style.content = aarrekuvake;
-    document.querySelector("#ruutu" + aarre4.xKoord + aarre4.yKoord).style.content = aarrekuvake; */
-
-    /* console.log(aarteet[0].xKoord);
-    console.log(aarteet[1]);
-    console.log(aarteet); */
-
 }
 
 function aarreRuudukossa(index) {
@@ -108,14 +74,14 @@ function pelaajaRuudukossa() {
 function siirryYlospain() {
 
     if (pelaaja.korkeus > 1) { // tarkistetaan, ettei olla ruudukon ylärivillä
-        console.log("ennen ylös: " + pelaajaRuudukossa()); // pelaajanSijainti()
-        // asetetaan pelaajakuvake pois poissiirryttävästä ruudusta
-        document.querySelector(pelaajaRuudukossa()).style.content = null; // "#ruutu" + pelaajanSijainti()
+        console.log("ennen ylös: " + pelaajaRuudukossa());
+        // asetetaan pelaajakuvake pois poissiirryttävästä ruudusta:
+        document.querySelector(pelaajaRuudukossa()).style.content = null;
 
-        // korkeus ylöspäin
+        // korkeus-arvo pienennee, kun siirrytään ylöspäin:
         pelaaja.korkeus--;
-        console.log("jälkeen ylös: " + pelaajaRuudukossa()); // pelaajanSijainti()
-        document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake; // pelaajanSijainti
+        console.log("jälkeen ylös: " + pelaajaRuudukossa());
+        document.querySelector(pelaajaRuudukossa()).style.content = pelaajakuvake;
 
         tarkistaOsuma();
     }
@@ -135,10 +101,6 @@ function siirryAlaspain() {
         tarkistaOsuma();
     }
 }
-
-/* function pelaajanNykyinenRuutu() {
-    return document.querySelector("#ruutu" + pelaajanSijainti).style.content;
-} */
 
 function siirryVasemmallepain() {
 
@@ -169,7 +131,8 @@ function siirryOikeallepain() {
 }
 
 function onkoAarreRuudussa() {
-    // jos siirron jälkeen pelaajan x-koordinaatti ja y-koordinaatti ovat samat kuin jonkin aarteista, palauta true; jos ei, palauta false
+    /* jos siirron jälkeen pelaajan x-koordinaatti ja y-koordinaatti ovat samat kuin 
+    jonkin aarteista, palauta true; jos ei, palauta false */
     for (let index = 0; index < aarteet.length; index++) {
         let leveys = aarteet[index].leveys;
         let korkeus = aarteet[index].korkeus;
@@ -187,6 +150,8 @@ function vaihdaNimi() {
     // ehto: syote ei saa olla tyhjä ja syotteen tulee olla vähintään 2 merkkiä
     if (syote != null && syote.length >= 2) {
         nimiSpan.textContent = syote;
+    } else {
+        alert("Ei voitu vaihtaa nimeä. \nUuden nimen vähimmäispituus on kaksi merkkiä.");
     }
 }
 
@@ -203,8 +168,4 @@ function tarkistaOsuma() {
 
 function tulostaPisteet() {
     return pisteet + " $";
-}
-
-function pelaajanSijainti() { // voinee poistaa?
-    return pelaaja.korkeus + "" + pelaaja.leveys;
 }
