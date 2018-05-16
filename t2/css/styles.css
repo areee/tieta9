@@ -1,0 +1,29 @@
+div.double {
+    border-style: double;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+div {
+    background-color: #b6ffb6;
+}
+
+.keskitys {
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+input, label, textarea {
+    display: block;
+    width: 100%;
+}
+
+form {
+    margin: 20px;
+}
+
+input {
+    margin-bottom: 10px;
+}

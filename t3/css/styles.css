@@ -1,0 +1,40 @@
+body {
+	
+	text-align: center;
+}
+#peli-poyta {
+	height: 360px;
+	background-color:green;
+	min-width:480px;
+	max-width:960px;
+	margin: 5px auto;
+}
+
+.pakka {
+	display: inline-block;
+}
+
+.kortti {
+	width: 100px;
+	height: 146px;
+	margin: 15px 7px;
+	display: inline-block;
+	text-align: center;
+}
+
+.pakka.kortti {
+	border-radius: 5px;
+	border: 1px dashed black;
+}
+
+.kortti img {
+	width:100px;
+}
+
+.kirjanpito {
+	text-align: center;
+}
+
+span {
+	font-weight: normal;
+}

@@ -1,0 +1,51 @@
+.a.b {
+    color: aqua;
+}
+
+.a.b span {
+    color: brown;
+}
+
+.a {
+    color: darkviolet;
+}
+
+.b {
+    color: chocolate;
+}
+
+.a.c li:first-child {
+    color: darkblue;
+}
+
+.c a {
+    color: gold;
+}
+
+.c li {
+    color: hotpink;
+}
+
+.c #a {
+    color: forestgreen;
+}
+
+.c li:last-child {
+    color: lime;
+}
+
+.c.b li:first-child {
+    color: royalblue;
+}
+
+.c.b .a {
+    color: olive;
+}
+
+section:nth-child(3) .a.b {
+    color: yellow;
+}
+
+section:nth-child(3) .a.b span {
+    color: pink;
+}
