@@ -13,8 +13,8 @@ let aarre4 = { korkeus: 0, leveys: 0 };
 // viedään aarteet kokoavaan taulukkoon:
 let aarteet = [aarre1, aarre2, aarre3, aarre4];
 
-let pelaajakuvake = "url('img/player.png')";
-let aarrekuvake = "url('img/coin.png')";
+let pelaajakuvake = "url('img/pelaaja.png')";
+let aarrekuvake = "url('img/aarre.png')";
 
 let nimialue = document.querySelector("#nimialue");
 let nimiSpan = document.querySelector("#nimi");
