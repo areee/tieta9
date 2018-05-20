@@ -39,22 +39,17 @@ function jokinNappainPainettu(e) {
     switch (e.key) {
         case "ArrowUp":
             siirryYlospain();
-            /* console.log("nuoli ylöspäin"); */
             break;
         case "ArrowDown":
             siirryAlaspain();
-            /* console.log("nuoli alaspäin"); */
             break;
         case "ArrowLeft":
             siirryVasemmallepain();
-            /* console.log("nuoli vasemmalle"); */
             break;
         case "ArrowRight":
             siirryOikeallepain();
-            /* console.log("nuoli oikealle"); */
             break;
         default:
-            /* console.log("jokin muu näppäin"); */
             break;
     }
 }
