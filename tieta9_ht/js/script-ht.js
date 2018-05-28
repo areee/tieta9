@@ -5,17 +5,23 @@ let pisteet = 0;
 
 let pelaaja = { korkeus: 0, leveys: 0 };
 
-let aarre1 = { korkeus: 0, leveys: 0 };
-let aarre2 = { korkeus: 0, leveys: 0 };
-let aarre3 = { korkeus: 0, leveys: 0 };
-let aarre4 = { korkeus: 0, leveys: 0 };
+let aarre0 = { korkeus: 0, leveys: 0, arvo: 100 };
+let aarre1 = { korkeus: 0, leveys: 0, arvo: 150 };
+let aarre2 = { korkeus: 0, leveys: 0, arvo: 300 };
+let aarre3 = { korkeus: 0, leveys: 0, arvo: 500 };
 
 // Viedaan aarteet kokoavaan taulukkoon:
-let aarteet = [aarre1, aarre2, aarre3, aarre4];
+let aarteet = [aarre0, aarre1, aarre2, aarre3];
 
 // Pelaajan ja aarteiden maarittavat kuvakkeet:
 let pelaajakuvake = "url('img/pelaaja.png')";
-let aarrekuvake = "url('img/aarre.png')";
+
+let aarrekuvake0 = "url('img/aarre0.png')";
+let aarrekuvake1 = "url('img/aarre1.png')";
+let aarrekuvake2 = "url('img/aarre2.png')";
+let aarrekuvake3 = "url('img/aarre3.png')";
+
+let aarrekuvakkeet = [aarrekuvake0, aarrekuvake1, aarrekuvake2, aarrekuvake3];
 
 let nimialue = document.querySelector("#nimialue");
 let nimiSpan = document.querySelector("#nimi");
@@ -70,17 +76,17 @@ function pelinAloitus() {
     pelaajakuvakkeenAsetus(true);
 
     // Asetetaan aarteiden sijainnit pelin alussa:
-    aarre1.korkeus = 1;
-    aarre1.leveys = 2;
+    aarre0.korkeus = 1;
+    aarre0.leveys = 2;
 
-    aarre2.korkeus = 2;
-    aarre2.leveys = 1;
+    aarre1.korkeus = 2;
+    aarre1.leveys = 1;
+
+    aarre2.korkeus = 3;
+    aarre2.leveys = 2;
 
     aarre3.korkeus = 3;
-    aarre3.leveys = 2;
-
-    aarre4.korkeus = 3;
-    aarre4.leveys = 3;
+    aarre3.leveys = 3;
 
     // Asetetaan aarteiden kuvakkeet nakymaan:
     for (let index = 0; index < aarteet.length; index++) {
@@ -192,30 +198,50 @@ function pelaajakuvakkeenAsetus(arvo) {
 }
 
 function aarrekuvakkeenAsetus(index) {
-    document.querySelector(aarreRuudukossa(index)).style.content = aarrekuvake;
+    document.querySelector(aarreRuudukossa(index)).style.content = aarrekuvakkeet[index];
 }
 
 function tarkistaOsuma() {
     // Jos aarre on samassa ruudukossa, kasvatetaan pisteita ja naytetaan pisteet pistealueella:
     if (onkoAarreRuudussa()) {
-        pisteet += 100;
-        pisteetSpan.textContent = tulostaPisteet();
+        asetaPisteet();
     }
 }
 
+function asetaPisteet() {
+    pisteetSpan.textContent = tulostaPisteet();
+}
+
 function onkoAarreRuudussa() {
-    /* Jos siirron jalkeen pelaajan korkeus ja leveys ovat samat kuin 
-    jonkin aarteista, palautetaan true, muussa tapauksessa palautetaan false: */
+    /* Jos siirron jalkeen pelaajan korkeus ja leveys ovat samat kuin jonkin aarteista,
+    nollataan aarteen sijainti, asetetaan pisteet ja palautetaan true.
+    Muussa tapauksessa palautetaan false: */
     for (let index = 0; index < aarteet.length; index++) {
         let aarteenLeveys = aarteet[index].leveys;
         let aarteenKorkeus = aarteet[index].korkeus;
         if (pelaaja.korkeus == aarteenKorkeus && pelaaja.leveys == aarteenLeveys) {
-            aarteet[index].leveys = 0;
-            aarteet[index].korkeus = 0;
+            annaPisteet(index);
+            nollaaAarteenSijainti(index);
             return true;
         }
     }
     return false;
+}
+
+function annaPisteet(index) {
+    // Annetaan pisteita sen mukaan, mika aarre ruudussa on:
+    pisteet += aarteet[index].arvo;
+}
+
+function nollaaAarteenSijainti(index) {
+    aarteet[index].leveys = 0;
+    aarteet[index].korkeus = 0;
+}
+
+function mikaAarreOnRuudussa() {
+    for (let index = 0; index < aarteet.length; index++) {
+
+    }
 }
 
 function tulostaPisteet() {
