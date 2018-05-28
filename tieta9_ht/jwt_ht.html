@@ -9,17 +9,16 @@
     <link rel="stylesheet" href="css/style-ht.css">
 </head>
 
-<body onload="pelinAloitus()">
+<body>
 
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-6">
-                <!-- Seikkailupelin ruudukko -->
+                <!-- Pelialue: seikkailupelin ruudukko -->
                 <div class="row text-center">
                     <div class="col-4 ruutu">
-                        <span id="ruutu11"></span>
                         <!-- span: ruutu + korkeus + leveys -->
+                        <span id="ruutu11"></span>
                     </div>
                     <div class="col-4 ruutu">
                         <span id="ruutu12"></span>
@@ -50,11 +49,10 @@
                         <span id="ruutu33"></span>
                     </div>
                 </div>
-
             </div>
-            <!--kontrollialue: pelaajan nimi + pistemaara + suuntapainikkeet-->
             <div class="col-6">
-                <h1>JWT 2018</h1>
+                <!-- Kontrollialue: pelaajan nimi, pistemaara ja suuntapainikkeet -->
+                <h1 class="text-body">JWT 2018</h1>
 
                 <p id="nimialue" class="alert alert-primary">
                     <strong>Nimi:</strong>
@@ -65,10 +63,10 @@
                     <span id="pisteet"></span>
                 </p>
                 <p>
-                    <button type="button" class="btn btn-secondary" id="ylos">Ylös</button>
-                    <button type="button" class="btn btn-secondary" id="alas">Alas</button>
-                    <button type="button" class="btn btn-secondary" id="vasen">Vasen</button>
-                    <button type="button" class="btn btn-secondary" id="oikea">Oikea</button>
+                    <button type="button" class="btn btn-primary" id="ylos">Ylös</button>
+                    <button type="button" class="btn btn-primary" id="alas">Alas</button>
+                    <button type="button" class="btn btn-primary" id="vasen">Vasen</button>
+                    <button type="button" class="btn btn-primary" id="oikea">Oikea</button>
                 </p>
             </div>
         </div>
